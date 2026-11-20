@@ -35,7 +35,7 @@ export function CalendarSection() {
   return (
     <section
       id="calendar"
-      className="bg-linen py-24 px-6 text-center border-y border-stone-line/70"
+      className="bg-linen py-16 px-6 text-center border-t border-stone-line/70"
     >
       <FadeIn>
         <p className="editorial-eyebrow">CALENDAR</p>

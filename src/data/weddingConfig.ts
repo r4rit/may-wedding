@@ -9,14 +9,6 @@ export interface PersonInfo {
   motherDeceased?: boolean;
 }
 
-export interface TimelineItem {
-  id: string;
-  time: string;
-  title: string;
-  location: string;
-  description: string;
-}
-
 export interface GalleryImage {
   id: string;
   src: string;
@@ -66,7 +58,6 @@ export interface WeddingConfig {
     title: string;
     paragraphs: string[];
   };
-  timeline: TimelineItem[];
   gallery: GalleryImage[];
   location: LocationInfo;
   accounts: {
@@ -119,29 +110,6 @@ export const weddingConfig: WeddingConfig = {
       '깊은 신뢰와 사랑으로 첫 발을 내딛는 자리에\n귀한 발걸음으로 축복해 주시면\n더없는 기쁨으로 간직하겠습니다.',
     ],
   },
-  timeline: [
-    {
-      id: 'reception',
-      time: '11:30',
-      title: '웰컴 리셉션',
-      location: '4층 르블랑포레홀 로비',
-      description: '신랑·신부 맞이 및 포토월 인사',
-    },
-    {
-      id: 'ceremony',
-      time: '12:10',
-      title: '본식',
-      location: '4층 르블랑포레홀',
-      description: '혼인 서약 등 본식',
-    },
-    {
-      id: 'banquet',
-      time: '12:40',
-      title: '연회장 식사',
-      location: '3층 그랜드 다이닝',
-      description: '식사 및 인사',
-    },
-  ],
   gallery: [
     { id: 'g1', src: '/images/gallery-01.webp', alt: '웨딩 스냅 사진 1' },
     { id: 'g2', src: '/images/gallery-02.webp', alt: '웨딩 스냅 사진 2' },

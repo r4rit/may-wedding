@@ -28,7 +28,7 @@ export function Greeting() {
   const { greeting, groom, bride } = weddingConfig;
 
   return (
-    <section id="greeting" className="bg-ivory py-24 px-7 text-center">
+    <section id="greeting" className="bg-ivory py-16 px-7 text-center">
       <FadeIn>
         <p className="editorial-eyebrow">{greeting.eyebrow}</p>
         <h2 className="mt-3 font-serif-kr text-[19px] font-normal tracking-wide text-ink">

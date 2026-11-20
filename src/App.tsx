@@ -6,7 +6,6 @@ import { Gallery } from './components/Gallery';
 import { Greeting } from './components/Greeting';
 import { Guestbook } from './components/Guestbook';
 import { Location } from './components/Location';
-import { Timeline } from './components/Timeline';
 import { ToastContainer } from './components/ToastContainer';
 
 export function App() {
@@ -16,7 +15,6 @@ export function App() {
         <Cover />
         <Greeting />
         <CalendarSection />
-        <Timeline />
         <Gallery />
         <Location />
         <Guestbook />

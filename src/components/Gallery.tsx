@@ -133,7 +133,7 @@ export function Gallery() {
   return (
     <section
       id="gallery"
-      className="bg-linen py-24 border-y border-stone-line/70"
+      className="bg-linen py-16 border-y border-stone-line/70"
     >
       <FadeIn>
         <div className="px-6 text-center">
