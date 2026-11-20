@@ -85,7 +85,9 @@ export function openMapNavigation(
     const appUrl = location.kakaoPlaceId
       ? `kakaomap://place?id=${location.kakaoPlaceId}`
       : `kakaomap://look?p=${location.lat},${location.lng}`;
-    const webFallback = `https://map.kakao.com/link/map/${encodedName},${location.lat},${location.lng}`;
+    const webFallback = location.kakaoPlaceId
+      ? `https://map.kakao.com/link/map/${location.kakaoPlaceId}`
+      : `https://map.kakao.com/link/map/${encodedName},${location.lat},${location.lng}`;
 
     if (mobile) {
       openAppWithFallback(appUrl, webFallback);

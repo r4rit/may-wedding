@@ -164,11 +164,10 @@ export const weddingConfig: WeddingConfig = {
     hallName: '4층 르블랑포레홀',
     address: '강원특별자치도 원주시 북원로 2888',
     jibunAddress: '강원특별자치도 원주시 태장동 1914',
-    // TODO: 네이버 지도 연동 시 실제 건물 핀 좌표 미세 확인 권장
-    lat: 37.4018,
-    lng: 127.9523,
+    lat: 37.40022632,
+    lng: 127.95423691,
     naverPlaceId: '',
-    kakaoPlaceId: '',
+    kakaoPlaceId: '21341701',
     transportation: [
       {
         label: '자가용 및 주차',
