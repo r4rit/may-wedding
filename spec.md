@@ -78,7 +78,7 @@ VITE_NAVER_MAP_CLIENT_ID=your-ncp-maps-client-id
 ```html
 <meta property="og:type" content="website" />
 <meta property="og:title" content="민준 & 서연 결혼합니다" />
-<meta property="og:description" content="2027년 5월 15일 토요일 오후 2시 · 예식장 이름" />
+<meta property="og:description" content="2027년 5월 22일 토요일 오후 2시 · 예식장 이름" />
 <meta property="og:image" content="https://your-domain.vercel.app/og-image.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -200,7 +200,7 @@ may-wedding/
 - **레이아웃:** `relative w-full h-dvh min-h-[580px] overflow-hidden` 풀블리드 스냅 사진(`object-cover w-full h-full`).
 - **가독성 스크림:** 상단과 하단에 은은한 다크 그라데이션 오버레이(`bg-gradient-to-b from-black/35 via-transparent to-black/55`)를 배치하여 밝은 사진 위에서도 텍스트 대비를 확보합니다.
 - **영문 세리프 오버레이:**
-  - 상단: 예식 날짜(`2027. 05. 15`) 및 영문 서브 라벨(`SATURDAY, MAY 2027`)
+  - 상단: 예식 날짜(`2027. 05. 22`) 및 영문 서브 라벨(`SATURDAY, MAY 2027`)
   - 중앙/하단: 신랑·신부 영문 세리프 이름(`MINJUN & SEOYEON`) + 국문 성함, 예식 시간 및 웨딩홀 명칭
   - 최하단: 절제된 스크롤 유도 아이콘/텍스트 (`ChevronDown`)
 - **성능:** 첫 화면 LCP(Largest Contentful Paint) 최적화를 위해 `fetchPriority="high"`, `loading="eager"`, WebP 포맷을 사용합니다.
@@ -216,9 +216,9 @@ may-wedding/
 ### 5.3 Compact Calendar & D-Day (`CalendarSection.tsx`)
 - **가로폭 75% 미니멀 달력 (`w-[75%] mx-auto`):**
   - 모바일 화면을 과도하게 점유하지 않도록 컴팩트한 비율로 렌더링합니다.
-  - 상단 영문 월/연도(`May 2027` — `Cormorant Garamond`) + 일시 요약(`2027년 5월 15일 토요일 오후 2시`).
+  - 상단 영문 월/연도(`May 2027` — `Cormorant Garamond`) + 일시 요약(`2027년 5월 22일 토요일 오후 2시`).
   - `grid-cols-7` 구조: 요일 헤더(`S M T W T F S`), 시작 요일 오프셋(2027년 5월 1일은 토요일이므로 앞 6칸 비움) 자동 계산.
-  - 일요일은 뮤트 로즈(`#9E6B64`) 톤으로 은은하게 구분하고, 예식일(`15`)에는 작은 하트(`Heart` 아이콘) 또는 원형 닷 배지를 겹쳐 마킹합니다.
+  - 일요일은 뮤트 로즈(`#9E6B64`) 톤으로 은은하게 구분하고, 예식일(`22`)에는 작은 하트(`Heart` 아이콘) 또는 원형 닷 배지를 겹쳐 마킹합니다.
 - **D-Day 실시간 계산 텍스트 바:**
   - **반드시 한국 표준시(KST, `Asia/Seoul`, UTC+9) 기준으로 날짜 차이를 계산**하여 해외 체류 하객이나 기기 타임존 차이로 인한 하루 오차를 방지합니다.
   - 상태별 문구 분기:
@@ -308,7 +308,7 @@ may-wedding/
 ### 6.1 `src/data/weddingConfig.ts` 설계 및 예시 스키마
 청첩장 내 모든 텍스트, 성함, 날짜, 타임라인, 갤러리 목록, 지도 좌표 및 교통 안내, 양가 계좌 정보를 단일 TypeScript 파일로 분리하여 코드 수정 없이 콘텐츠만 교체할 수 있게 합니다.
 
-> **참고:** 아래 예식의 날짜(`2027-05-15T14:00:00+09:00`), 성함, 계좌번호, 좌표는 모두 **예시 플레이스홀더**입니다. 실제 개발 단계에서 `TODO` 항목을 본식 정보로 교체해야 합니다.
+> **참고:** 예식 날짜(`2027-05-22`, 2027년 5월 22일 토요일)는 확정 반영되었으며, 예식 시간(`14:00`), 성함, 계좌번호, 좌표 등은 **예시 플레이스홀더**입니다. 실제 개발 단계에서 `TODO` 항목을 본식 정보로 교체해야 합니다.
 
 ```ts
 export interface PersonInfo {
@@ -365,7 +365,7 @@ export interface WeddingConfig {
     description: string;
     ogImage: string;
   };
-  weddingDateISO: string; // KST ISO-8601 (예: '2027-05-15T14:00:00+09:00')
+  weddingDateISO: string; // KST ISO-8601 (예: '2027-05-22T14:00:00+09:00')
   cover: {
     imageSrc: string;
     eyebrow: string;
@@ -397,14 +397,14 @@ export interface WeddingConfig {
 export const weddingConfig: WeddingConfig = {
   meta: {
     title: '민준 & 서연 결혼합니다',
-    description: '2027년 5월 15일 토요일 오후 2시 · 예식장 이름',
+    description: '2027년 5월 22일 토요일 오후 2시 · 예식장 이름',
     ogImage: '/og-image.jpg',
   },
-  weddingDateISO: '2027-05-15T14:00:00+09:00',
+  weddingDateISO: '2027-05-22T14:00:00+09:00',
   cover: {
     imageSrc: '/images/cover.webp',
     eyebrow: 'THE WEDDING OF',
-    dateDisplay: '2027. 05. 15. SAT 2:00 PM',
+    dateDisplay: '2027. 05. 22. SAT 2:00 PM',
     venueDisplay: '메종 드 아모르 · 3층 아모르홀',
   },
   groom: {
@@ -660,21 +660,21 @@ GRANT EXECUTE ON FUNCTION public.delete_guestbook_entry(UUID, TEXT) TO anon, aut
 - [x] `spec.md` 작성 및 Initial Commit 생성
 
 ### Phase 1: 프로젝트 셋업 및 디자인 시스템 구축
-- [ ] Vite + React + TypeScript 프로젝트 초기화 (`npm create vite@latest`)
-- [ ] 핵심 패키지 설치 (`tailwindcss`, `@tailwindcss/vite`, `lucide-react`, `canvas-confetti`, `@types/canvas-confetti`, `@supabase/supabase-js`)
-- [ ] `.gitignore`, `.env.example`, `index.html`(구글 폰트 `Cormorant Garamond`, `Gowun Batang`, `Pretendard` CDN 및 OG 메타태그 스켈레톤) 구성
-- [ ] `index.css` 컬러 토큰, 폰트 유틸, `dvh` 및 iOS 입력창 줌 방지/Safe Area 스타일 적용
-- [ ] `max-w-md mx-auto min-h-dvh` 모바일 중앙 프레임 레이아웃 쉘 구현
-- [ ] `src/data/weddingConfig.ts` 타입 및 플레이스홀더 데이터 구조 작성
-- [ ] `src/context/ToastContext.tsx` & `ToastContainer.tsx` 구현
-- [ ] `src/lib/clipboard.ts` (Clipboard API + 인앱 브라우저 Fallback) 구현
+- [x] Vite + React + TypeScript 프로젝트 초기화 (`npm create vite@latest`)
+- [x] 핵심 패키지 설치 (`tailwindcss`, `@tailwindcss/vite`, `lucide-react`, `canvas-confetti`, `@types/canvas-confetti`, `@supabase/supabase-js`)
+- [x] `.gitignore`, `.env.example`, `index.html`(구글 폰트 `Cormorant Garamond`, `Gowun Batang`, `Pretendard` CDN 및 OG 메타태그 스켈레톤) 구성
+- [x] `index.css` 컬러 토큰, 폰트 유틸, `dvh` 및 iOS 입력창 줌 방지/Safe Area 스타일 적용
+- [x] `max-w-md mx-auto min-h-dvh` 모바일 중앙 프레임 레이아웃 쉘 구현
+- [x] `src/data/weddingConfig.ts` 타입 및 플레이스홀더 데이터 구조 작성
+- [x] `src/context/ToastContext.tsx` & `ToastContainer.tsx` 구현
+- [x] `src/lib/clipboard.ts` (Clipboard API + 인앱 브라우저 Fallback) 구현
 
 ### Phase 2: 에디토리얼 정적 섹션 구현
-- [ ] `Cover.tsx`: `h-dvh` 풀화면 스냅 사진, 그라데이션 스크림, 영문 세리프 오버레이, 스크롤 인디케이터 구현
-- [ ] `Greeting.tsx`: 모시는 글 및 양가 부모/신랑·신부 성함 정돈된 2행 표기 구현 (전화/문자 버튼 배제 확인)
-- [ ] `src/lib/date.ts` & `CalendarSection.tsx`: 가로폭 75%(`w-[75%]`) 5월 미니멀 달력 + 예식일 하트/닷 마킹 + KST(`Asia/Seoul`) 실시간 D-Day 계산 바 구현
-- [ ] `Timeline.tsx`: 웰컴 리셉션 / 본식 / 연회장 식사 버티컬 타임라인 UI 구현
-- [ ] `Footer.tsx`: 에디토리얼 맺음말 및 크레딧 구현
+- [x] `Cover.tsx`: `h-dvh` 풀화면 스냅 사진, 그라데이션 스크림, 영문 세리프 오버레이, 스크롤 인디케이터 구현
+- [x] `Greeting.tsx`: 모시는 글 및 양가 부모/신랑·신부 성함 정돈된 2행 표기 구현 (전화/문자 버튼 배제 확인)
+- [x] `src/lib/date.ts` & `CalendarSection.tsx`: 가로폭 75%(`w-[75%]`) 5월 미니멀 달력 + 예식일 하트/닷 마킹 + KST(`Asia/Seoul`) 실시간 D-Day 계산 바 구현
+- [x] `Timeline.tsx`: 웰컴 리셉션 / 본식 / 연회장 식사 버티컬 타임라인 UI 구현
+- [x] `Footer.tsx`: 에디토리얼 맺음말 및 크레딧 구현
 
 ### Phase 3: 갤러리, 지도 및 계좌 기능 구현
 - [ ] `Gallery.tsx`: 인스타그램 스타일 가로 스와이프 캐러셀(`snap-x`), 도트 인디케이터, 인덱스 표시, 지연 로딩(`loading="lazy"`) 구현
