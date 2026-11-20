@@ -690,9 +690,18 @@ GRANT EXECUTE ON FUNCTION public.delete_guestbook_entry(UUID, TEXT) TO anon, aut
 - [x] `GuestbookDeleteModal.tsx`: 4자리 PIN 입력 확인 모달 및 삭제 RPC 연동
 
 ### Phase 5: 최적화, 실기기 QA 및 무료 배포
-- [ ] 실제 웨딩 스냅 사진 리사이즈 및 WebP 변환(`public/images/`), `public/og-image.jpg`(300KB 이하) 반영
-- [ ] `src/data/weddingConfig.ts` 실제 본식 정보(이름, 날짜, 계좌, 좌표, 교통편) 입력
-- [ ] Naver Cloud Platform 콘솔에서 Web Dynamic Map URL(`localhost`, Vercel 도메인) 등록 및 월간 사용량 한도/알림 설정
-- [ ] Vercel Hobby 배포 및 환경 변수(`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `VITE_NAVER_MAP_CLIENT_ID`) 등록
-- [ ] 실기기 QA: iOS Safari, Android Chrome, **카카오톡 인앱 브라우저**에서 `dvh`, 딥링크, 클립보드 복사, 방명록 등록/삭제, OG 썸네일 테스트
-- [ ] 카카오 공유 디버거 캐시 초기화 및 Supabase Auto-pause(7일 미사용 일시정지) 방지 점검
+- [x] Vite 프로덕션 번들 청크 분리 최적화 (`vite.config.ts` `manualChunks`로 `vendor-react`, `vendor-supabase`, `vendor-ui` 분리)
+- [ ] 실제 웨딩 스냅 사진 리사이즈·WebP 변환(`public/images/cover.webp`, `gallery-*.webp`) 및 `public/og-image.jpg`(1200×630, 300KB 이하) 반영
+- [ ] `src/data/weddingConfig.ts` 본식 정보(성함, 시간, 예식장, 좌표, 계좌, 교통편) 및 `index.html` OG 메타태그 절대 URL 업데이트
+- [ ] Supabase 프로젝트 생성 및 SQL Editor에서 `supabase/schema.sql` 실행 (테이블, RLS, `pgcrypto` RPC 적용 확인)
+- [ ] Naver Cloud Platform 대표 계정 확인, Web Dynamic Map 도메인(`http://localhost:5173`, 프로덕션 Vercel URL) 등록 및 월간 사용량 한도/알림 설정
+- [ ] Vercel Hobby 연결·배포 및 환경 변수 3종(`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `VITE_NAVER_MAP_CLIENT_ID`) 등록
+- [ ] 실기기 QA(iOS Safari, Android Chrome, **카카오톡 인앱 브라우저**: `dvh`, 딥링크 3종, 주소/계좌 복사, 방명록 등록·컨페티·PIN 삭제) 및 카카오 공유 디버거 캐시 초기화 + Supabase 7일 비활성 일시정지(Auto-pause) 방지 점검
+
+### 배포 실행 요약 (Launch Runbook)
+1. **에셋 및 설정 교체:** `public/images/`에 WebP 스냅 사진과 `public/og-image.jpg`를 배치하고, `src/data/weddingConfig.ts`의 `TODO` 항목(시간, 성함, 예식장 주소·좌표, 계좌번호, 교통안내)과 `index.html`의 `og:*` 메타태그를 본식 정보로 수정합니다.
+2. **외부 무료 서비스 프로비저닝:**
+   - **Supabase:** 새 프로젝트 생성 후 `SQL Editor`에서 `supabase/schema.sql` 전체를 실행하고 `Project URL` / `anon public key`를 확보합니다.
+   - **Naver Cloud Platform:** 대표 계정에서 `Maps > Web Dynamic Map` 앱을 등록해 `Client ID`(`ncpKeyId`)를 발급받고, 서비스 URL(`http://localhost:5173`, Vercel 배포 URL)과 월간 사용량 한도·알림을 설정합니다.
+3. **로컬 연동 검증:** `.env.example`을 복사해 `.env.local`을 만들고 3개 환경 변수를 채운 뒤 `npm run dev` 및 `npm run build`로 지도·방명록 CRUD를 확인합니다.
+4. **Vercel 배포 및 실기기 점검:** Vercel Hobby에 저장소를 연결하고 3개 `VITE_*` 환경 변수를 등록해 배포한 뒤, 카카오 공유 디버거로 OG 캐시를 초기화하고 카카오톡 인앱 브라우저·iOS Safari·Android Chrome에서 최종 QA를 마칩니다. 예식 전후에는 Supabase 프로젝트가 7일 미사용으로 일시정지(Auto-pause)되지 않았는지 주기적으로 확인합니다.
