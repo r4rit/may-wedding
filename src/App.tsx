@@ -1,7 +1,10 @@
+import { Account } from './components/Account';
 import { CalendarSection } from './components/CalendarSection';
 import { Cover } from './components/Cover';
 import { Footer } from './components/Footer';
+import { Gallery } from './components/Gallery';
 import { Greeting } from './components/Greeting';
+import { Location } from './components/Location';
 import { Timeline } from './components/Timeline';
 import { ToastContainer } from './components/ToastContainer';
 
@@ -13,10 +16,12 @@ export function App() {
         <Greeting />
         <CalendarSection />
         <Timeline />
+        <Gallery />
+        <Location />
 
-        {/* Phase 3 예정: Gallery, Location, Account */}
         {/* Phase 4 예정: Guestbook */}
 
+        <Account />
         <Footer />
         <ToastContainer />
       </main>

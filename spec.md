@@ -677,11 +677,11 @@ GRANT EXECUTE ON FUNCTION public.delete_guestbook_entry(UUID, TEXT) TO anon, aut
 - [x] `Footer.tsx`: 에디토리얼 맺음말 및 크레딧 구현
 
 ### Phase 3: 갤러리, 지도 및 계좌 기능 구현
-- [ ] `Gallery.tsx`: 인스타그램 스타일 가로 스와이프 캐러셀(`snap-x`), 도트 인디케이터, 인덱스 표시, 지연 로딩(`loading="lazy"`) 구현
-- [ ] `GalleryModal.tsx`: 클릭 시 풀스크린 라이트박스 모달, 터치/키보드 좌우 탐색, 배경 스크롤 잠금 구현
-- [ ] `NaverMap.tsx`: Naver Maps JS v3(`ncpKeyId`) 동적 스크립트 로드, 마커 표시, 지도 잠금 토글 및 로드 실패 Fallback 구현
-- [ ] `src/lib/mapLinks.ts` & `Location.tsx`: 식장 주소 원클릭 복사, 네이버 지도/카카오맵/티맵 딥링크 및 Fallback(`goalx=lng`, `goaly=lat` 확인), 교통편/주차 안내 구현
-- [ ] `Account.tsx`: `[마음 전하실 곳]` 신랑측/신부측 아코디언 토글 및 계좌번호 원클릭 복사 + 토스트 피드백 구현
+- [x] `Gallery.tsx`: 인스타그램 스타일 가로 스와이프 캐러셀(`snap-x`), 도트 인디케이터, 인덱스 표시, 지연 로딩(`loading="lazy"`) 구현
+- [x] `GalleryModal.tsx`: 클릭 시 풀스크린 라이트박스 모달, 터치/키보드 좌우 탐색, 배경 스크롤 잠금 구현
+- [x] `NaverMap.tsx`: Naver Maps JS v3(`ncpKeyId`) 동적 스크립트 로드, 마커 표시, 지도 잠금 토글 및 로드 실패 Fallback 구현
+- [x] `src/lib/mapLinks.ts` & `Location.tsx`: 식장 주소 원클릭 복사, 네이버 지도/카카오맵/티맵 딥링크 및 Fallback(`goalx=lng`, `goaly=lat` 확인), 교통편/주차 안내 구현
+- [x] `Account.tsx`: `[마음 전하실 곳]` 신랑측/신부측 아코디언 토글 및 계좌번호 원클릭 복사 + 토스트 피드백 구현
 
 ### Phase 4: Supabase DB 및 실시간 방명록 구현
 - [ ] Supabase 프로젝트 생성 및 `supabase/schema.sql` 실행 (테이블, RLS, `pgcrypto` RPC 적용)
