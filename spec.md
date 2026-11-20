@@ -684,10 +684,10 @@ GRANT EXECUTE ON FUNCTION public.delete_guestbook_entry(UUID, TEXT) TO anon, aut
 - [x] `Account.tsx`: `[마음 전하실 곳]` 신랑측/신부측 아코디언 토글 및 계좌번호 원클릭 복사 + 토스트 피드백 구현
 
 ### Phase 4: Supabase DB 및 실시간 방명록 구현
-- [ ] Supabase 프로젝트 생성 및 `supabase/schema.sql` 실행 (테이블, RLS, `pgcrypto` RPC 적용)
-- [ ] `src/lib/supabase.ts` 클라이언트 초기화 및 명시적 컬럼 조회/RPC 함수 래퍼 작성
-- [ ] `Guestbook.tsx`: 방명록 목록 조회(6건 단위 더 보기), 작성 폼(이름/메시지/4자리 숫자 PIN), 등록 시 뉴트럴 톤 `canvas-confetti` + 토스트 피드백 구현
-- [ ] `GuestbookDeleteModal.tsx`: 4자리 PIN 입력 확인 모달 및 삭제 RPC 연동
+- [x] `supabase/schema.sql` 작성 (테이블, RLS, `pgcrypto` RPC 정의; 실제 Supabase 프로젝트 생성 및 SQL 실행은 Phase 5 배포 시 진행)
+- [x] `src/lib/supabase.ts` 클라이언트 초기화 및 명시적 컬럼 조회/RPC 함수 래퍼 작성
+- [x] `Guestbook.tsx`: 방명록 목록 조회(6건 단위 더 보기), 작성 폼(이름/메시지/4자리 숫자 PIN), 등록 시 뉴트럴 톤 `canvas-confetti` + 토스트 피드백 구현
+- [x] `GuestbookDeleteModal.tsx`: 4자리 PIN 입력 확인 모달 및 삭제 RPC 연동
 
 ### Phase 5: 최적화, 실기기 QA 및 무료 배포
 - [ ] 실제 웨딩 스냅 사진 리사이즈 및 WebP 변환(`public/images/`), `public/og-image.jpg`(300KB 이하) 반영

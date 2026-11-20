@@ -4,6 +4,7 @@ import { Cover } from './components/Cover';
 import { Footer } from './components/Footer';
 import { Gallery } from './components/Gallery';
 import { Greeting } from './components/Greeting';
+import { Guestbook } from './components/Guestbook';
 import { Location } from './components/Location';
 import { Timeline } from './components/Timeline';
 import { ToastContainer } from './components/ToastContainer';
@@ -18,9 +19,7 @@ export function App() {
         <Timeline />
         <Gallery />
         <Location />
-
-        {/* Phase 4 예정: Guestbook */}
-
+        <Guestbook />
         <Account />
         <Footer />
         <ToastContainer />
